@@ -538,13 +538,13 @@
 
   function setOwnDataRange(event, days){
       $('#rp_to').val(moment().subtract(1, 'days').format('YYYY-MM-DD'));
-      $('#rp_from').val(moment().add(-days+1, 'days').format('YYYY-MM-DD'));
+      $('#rp_from').val(moment().add(-days-1, 'days').format('YYYY-MM-DD'));
       return maybePrevent(event);
   }
 
   function setOwnLateDataRange(event, days) {
       $('#rp_to').val(moment().day(-1).format('YYYY-MM-DD'));
-      $('#rp_from').val(moment().add(-days+1, 'days').format('YYYY-MM-DD'));
+      $('#rp_from').val(moment().add(-days-1, 'days').format('YYYY-MM-DD'));
       return maybePrevent(event);
   }
 
