@@ -153,6 +153,11 @@
         $('#rp_enabledate').prop('checked',true);
         return setOwnDataRange(event,days);
     });
+    $('.presetmylatedates').click(function(event) {
+        var days = $(this).attr('days');
+        $('#rp_enabledate').prop('checked',true);
+        return setOwnLateDataRange(event,days);
+    });
     $('#rp_show').click(show);
     $('#rp_notes').bind('input', function (event) {
       $('#rp_enablenotes').prop('checked',true);
@@ -536,7 +541,13 @@
       $('#rp_from').val(moment().add(-days, 'days').format('YYYY-MM-DD'));
       return maybePrevent(event);
   }
-  
+
+  function setOwnLateDataRange(event, days) {
+      $('#rp_to').val(moment().day(-1).format('YYYY-MM-DD'));
+      $('#rp_from').val(moment().add(-days, 'days').format('YYYY-MM-DD'));
+      return maybePrevent(event);
+  }
+
   function switchreport_handler(event) {
     var id = $(this).attr('id');
     
